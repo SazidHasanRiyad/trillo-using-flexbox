@@ -11,6 +11,12 @@
   justify-content: center;
   align-items: center;
 
+  @media only screen and (max-width: $bp-extra-small) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-3);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -97,6 +103,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: $bp-extra-small) {
+      top: 2.5rem;
+    }
   }
 
   &__user-photo {
@@ -115,16 +125,31 @@
   margin-top: 3.5rem;
   list-style: none;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
   &__item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -158,6 +183,16 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -165,6 +200,10 @@
     width: 1.75rem;
     height: 1.7rem;
     margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+    }
   }
 }
 
@@ -173,13 +212,17 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 1.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //////////// image gallery
 
 .gallery {
   display: flex;
-  border-bottom: 1px solid var(--color-grey-dark-3);
+  border-bottom: var(--line);
 
   &__photo {
     width: 100%;
@@ -192,16 +235,29 @@
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 0.5px solid var(--color-grey-dark-3);
+  border-bottom: var(--line);
   background-color: white;
 
   &__heading {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 300;
     color: var(--color-grey-dark-3);
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1rem;
+      padding: 1.5rem 2rem;
+    }
+
+    @media only screen and (max-width: $bp-extra-small) {
+      font-size: 0.9rem;
+    }
+
+    @media only screen and (max-width: $bp-more-extra-small) {
+      font-size: 0.6rem;
+    }
   }
 
   &__stars {
@@ -220,6 +276,19 @@
     height: 1.75rem;
     width: 1.75rem;
     fill: var(--color-primary);
+
+    @media only screen and (max-width: $bp-extra-small) {
+      height: 1.4rem;
+      width: 1.4rem;
+    }
+  }
+
+  &__icon-location {
+    margin-right: 5px;
+
+    @media only screen and (max-width: $bp-more-extra-small) {
+      margin-right: 2px;
+    }
   }
 
   &__rating {
@@ -227,16 +296,28 @@
     background-color: var(--color-primary);
     text-align: center;
 
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
     &-average {
       font-size: 2.25rem;
       font-weight: 300;
       color: var(--color-grey-light-1);
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
 
     &-count {
       font-size: 1rem;
       color: var(--color-grey-light-1);
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 0.5rem;
+      }
     }
   }
 }
@@ -251,7 +332,12 @@
   border-bottom: 1px solid currentColor;
   cursor: pointer;
   display: inline-block;
-  transition: all .2s;
+  transition: all 0.2s;
+
+  span {
+    margin-left: 3px;
+    transition: all 0.2s;
+  }
 
   &:focus {
     outline: none;
@@ -262,6 +348,10 @@
     transform: scale(1.1);
     animation: pulsate 1s infinite;
     background-color: transparent;
+
+    span {
+      margin-left: 8px;
+    }
   }
 }
 
